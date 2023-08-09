@@ -5,7 +5,7 @@
     Write-Verbose "[$((Get-Date).TimeofDay)] Starting $($myinvocation.mycommand)"
     $currentUser = whoami # get account running function
     Write-Verbose "[$((Get-Date).TimeofDay)] Running as $currentUser"
-    if ($currentUser -eq "nt authority\system") {
+    if ($currentUser -eq "autorite nt\système") {
         Write-Verbose "[$((Get-Date).TimeofDay)] Running in SYSTEM context. Set path to WINGET executable"
         $winget = Get-ChildItem -Path "$env:ProgramFiles\WindowsApps" -Recurse -File | Where-Object { $_.name -like "AppInstallerCLI.exe" -or $_.name -like "WinGet.exe" } | Select-Object -ExpandProperty fullname
         # If there are multiple versions, select latest
